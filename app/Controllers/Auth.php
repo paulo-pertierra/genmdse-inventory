@@ -62,5 +62,15 @@ class Auth extends BaseController
             'email' => $email,
             'password' => Hash::encrypt($password)
         ];   
+
+        $userModel = new \App\Models\UserModel();
+        $query = $userModel->insert($data);
+
+        if(!$query)
+        {
+            return redirect()->to('auth/register')->with('fail', 'Failed to register the user.');
+        }
+
+        return redirect()->to('auth/register')->with('success', 'Registration success.');
     }
 }
