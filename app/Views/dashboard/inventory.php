@@ -66,10 +66,10 @@
                                 <td class="px-6 py-4">
                                     <?= $item['qty'] ?>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <span class="bg-green-600 text-indigo-50 p-1 rounded-md">View</span>
-                                    <span class="bg-orange-600 text-indigo-50 p-1 rounded-md">Edit</span>
-                                    <span class="bg-red-600 text-indigo-50 p-1 rounded-md">Delete</span>
+                                <td class="px-6 py-4 flex items-center">
+                                    <a href="/dashboard/inventory/<?= $item['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View</a>
+                                    <span class="bg-orange-600 text-indigo-50 p-1 rounded-md mx-0.5">Edit</span>
+                                    <span class="bg-red-600 text-indigo-50 p-1 rounded-md mx-0.5">View</span>
                                 </td>
                             </tr>
                         <?php
