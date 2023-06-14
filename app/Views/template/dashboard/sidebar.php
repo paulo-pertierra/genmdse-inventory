@@ -16,10 +16,10 @@
   </div>
   <div>
     <a href="/dashboard" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-gauge"></i></span> Dashboard</a>
-    <a href="/dashboard/inventory" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-boxes-stacked"></i></span> Inventory</a>
-    <a href="/dashboard/customers" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-people-arrows"></i></span> Customers</a>
-    <a href="/dashboard/transactions" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-handshake"></i></span> Transactions</a>
-    <a href="/dashboard/summary" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-people-arrows"></i></span> Summary</a>
+    <a href="/inventory" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-boxes-stacked"></i></span> Inventory</a>
+    <a href="/customer" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-people-arrows"></i></span> Customers</a>
+    <a href="/transaction" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-handshake"></i></span> Transactions</a>
+    <a href="/summary" class="block w-64 rounded-lg p-2 text-lg font-semibold text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 hover:text-white"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-people-arrows"></i></span> Summary</a>
   </div>
   <div class="mt-8">
     <div class="mb-4 flex items-center">

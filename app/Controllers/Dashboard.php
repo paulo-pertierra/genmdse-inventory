@@ -42,7 +42,7 @@ class Dashboard extends BaseController
             'userInfo' => $userInfo
         ];
         
-        return view('template/htmlhead')
+        return view('template/htmlhead', ['location' => 'Preferences'])
         .view('template/dashboard/sidebar', $data)
         .view('dashboard/preferences')
         .view('template/htmlend');

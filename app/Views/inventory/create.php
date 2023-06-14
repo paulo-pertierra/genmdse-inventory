@@ -3,11 +3,11 @@
 
         <div class="relative overflow-x-auto p-4 rounded-lg">
             <div class="w-full my-2 flex font-semibold">
-                <a href="./" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mx-1.5 hover:text-white hover:bg-indigo-800 transition-colors">
-                    <span class="fa-solid fa-eye mr-1.5 text-sm"></span>View
+                <a href="/inventory" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 hover:text-white hover:bg-indigo-800 transition-colors">
+                    <span class="fa-solid fa-arrow-left mr-1.5 text-sm"></span>Go Back
                 </a>
-                <button href="inventory/create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 disabled:bg-indigo-950" disabled>
-                    <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add
+                <button href="./create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 disabled:bg-indigo-950" disabled>
+                    <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add Item
                 </button>
             </div>
             <div class=" overflow-hidden">
@@ -25,7 +25,7 @@
                         <?php
                         }
                         ?>
-                        <form action="<?= base_url('/dashboard/inventory/create') ?>" method="POST">
+                        <form action="<?= base_url('/inventory/create') ?>" method="POST">
                             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                 <div class="sm:col-span-1">
                                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Brand</label>

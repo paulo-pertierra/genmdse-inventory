@@ -3,11 +3,11 @@
 
         <div class="relative overflow-x-auto p-4 rounded-lg">
             <div class="w-full my-2 flex font-semibold">
-                <button class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mx-1.5 disabled:bg-indigo-950" disabled>
+                <button class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 disabled:bg-indigo-950" disabled>
                     <span class="fa-solid fa-eye mr-1.5 text-sm"></span>View
                 </button>
-                <a href="/dashboard/inventory/create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 hover:text-white hover:bg-indigo-800 transition-colors">
-                    <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add
+                <a href="/inventory/create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 hover:text-white hover:bg-indigo-800 transition-colors">
+                    <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add Item
                 </a>
             </div>
             <div class=" overflow-hidden rounded-lg">
@@ -67,8 +67,8 @@
                                     <?= $item['qty'] ?>
                                 </td>
                                 <td class="px-6 py-4 flex items-center">
-                                    <a href="/dashboard/inventory/<?= $item['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View/Edit</a>
-                                    <form action="/dashboard/inventory/<?= $item['id'] ?>/delete" method="POST">
+                                    <a href="/inventory/<?= $item['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View/Edit</a>
+                                    <form action="/inventory/<?= $item['id'] ?>/delete" method="POST">
                                         <button type="submit" class="bg-red-600 text-indigo-50 p-1 rounded-md mx-0.5">Delete</button>
                                     </form>
                                 </td>

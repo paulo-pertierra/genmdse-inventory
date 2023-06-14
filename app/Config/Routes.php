@@ -38,16 +38,16 @@ $routes->post('/auth/logoutUser', 'Auth::logoutUser');
 
 $routes->get('/dashboard', 'Dashboard::index');
 
-$routes->get('/dashboard/inventory', 'Item::index');
-$routes->get('/dashboard/inventory/create', 'Item::create');
-$routes->post('/dashboard/inventory/create', 'Item::createItem');
-$routes->get('/dashboard/inventory/(:num)', 'Item::view/$1');
-$routes->post('/dashboard/inventory/(:num)/delete', 'Item::delete/$1');
+$routes->get('/inventory', 'Item::index');
+$routes->get('/inventory/create', 'Item::create');
+$routes->post('/inventory/create', 'Item::createItem');
+$routes->get('/inventory/(:num)', 'Item::view/$1');
+$routes->post('/inventory/(:num)/delete', 'Item::delete/$1');
 
-$routes->get('/dashboard/customers', 'Customer::index');
-$routes->get('/dashboard/transactions', 'Dashboard::transactions');
-$routes->get('/dashboard/summary', 'Dashboard::summary');
-$routes->get('/dashboard/preferences', 'Dashboard::preferences');
+$routes->get('/customer', 'Customer::index');
+$routes->get('/transactions', 'Dashboard::transactions');
+$routes->get('/summary', 'Dashboard::summary');
+$routes->get('/preferences', 'Dashboard::preferences');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

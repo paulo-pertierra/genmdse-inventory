@@ -51,7 +51,7 @@ class Item extends BaseController
 
         return view('template/htmlhead', Item::headerData())
             . view('template/dashboard/sidebar', Item::userData())
-            . view('dashboard/inventory', $data)
+            . view('/inventory/index', $data)
             . view('template/htmlend');
     }
 
@@ -59,7 +59,7 @@ class Item extends BaseController
     {
         return view('template/htmlhead', Item::headerData())
             . view('template/dashboard/sidebar', $data = Item::userData())
-            . view('dashboard/inventory/create')
+            . view('/inventory/create')
             . view('template/htmlend');
     }
 
@@ -104,10 +104,10 @@ class Item extends BaseController
         $query = $itemModel->insert($data);
 
         if (!$query) {
-            return redirect()->to('/dashboard/inventory/create')->with('fail', 'Failed to register the user.');
+            return redirect()->to('/inventory/create')->with('fail', 'Failed to register the user.');
         }
 
-        return redirect()->to('/dashboard/inventory/create')->with('success', 'Registration success.');
+        return redirect()->to('/inventory/create')->with('success', 'Registration success.');
     }
 
     public function view($num)
@@ -121,7 +121,7 @@ class Item extends BaseController
 
         return view('template/htmlhead.php', Item::headerData())
             . view('template/dashboard/sidebar', Item::userData())
-            . view('dashboard/inventory/view', $data)
+            . view('inventory/view', $data)
             . view('template/htmlend');
     }
 
@@ -130,6 +130,6 @@ class Item extends BaseController
         $itemModel = new ItemModel();
         $query = $itemModel->delete($num);
 
-        return redirect()->to('/dashboard/inventory');
+        return redirect()->to('/inventory');
     }
 }
