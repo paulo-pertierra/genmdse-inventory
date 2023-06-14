@@ -125,4 +125,80 @@ class Customer extends BaseController
               .view('/customer/view', $data)
               .view('template/htmlend');
     }
+
+    public function update($num)
+    {
+        $customerModel = new CustomerModel();
+        $customer = $customerModel->find($num);
+        $data = [
+            'id' => $num,
+            'customer' => $customer
+        ];
+
+        return view('template/htmlhead', Customer::headerData())
+              .view('template/dashboard/sidebar', Customer::userData())
+              .view('/customer/update', $data)
+              .view('template/htmlend');
+    }
+
+    public function updateCustomer($num)
+    {
+        $validated = $this->validate([
+            'name' => 'required|min_length[1]',
+            'address' => 'required|min_length[3]|max_length[255]',
+            'contact_number' => [
+                'rules' => 'required|min_length[4]|max_length[15]',
+                'errors' => [
+                    'required' => 'The phone number field is required.',
+                    'min_length' => 'The phone number must be at least 4 characters.',
+                    'max_length' => 'Exceeded maximum phone number length.'
+                ]
+            ],
+            'contact_email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'The email address field is required.',
+                    'valid_email' => 'The email address field must contain a valid email address.'
+                ]
+            ],
+            'remarks' => 'max_length[1024]',
+        ]);
+
+        if (!$validated) {
+            session()->setFlashdata(['validation' => $this->validator]);
+            return redirect()->to('/customer/'. $num . '/update');
+        }
+        $customerModel = new CustomerModel();
+        
+        $name = $this->request->getPost('name');
+        $address = $this->request->getPost('address');
+        $contactNumber = $this->request->getPost('contact_number');
+        $contactEmail = $this->request->getPost('contact_email');
+        $remarks = $this->request->getPost('remarks');
+
+        $data = [
+            'name' => $name,
+            'address' => $address,
+            'contact_number' => $contactNumber,
+            'contact_email' => $contactEmail,
+            'remarks' => $remarks
+        ];
+
+        $query = $customerModel->update($num, $data);
+
+        if(!$query)
+        {
+            return redirect()->to('/customer')->with('fail', 'Failed to register the user.');
+        }
+
+        return redirect()->to('/customer')->with('success', 'Update success.');
+    }
+    
+    public function delete($num)
+    {
+        $customerModel = new CustomerModel();
+        $query = $customerModel->delete($num);
+
+        return redirect()->to('/customer');
+    }
 }
