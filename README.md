@@ -1,5 +1,11 @@
 # CodeIgniter 4 Application Starter
 
+## Initialize Database on XAMPP
+
+Open [PHP Admin](http://localhost/phpmyadmin)
+
+
+
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
