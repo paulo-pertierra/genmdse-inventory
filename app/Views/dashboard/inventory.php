@@ -6,7 +6,7 @@
                 <button class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mx-1.5 disabled:bg-indigo-950" disabled>
                     <span class="fa-solid fa-eye mr-1.5 text-sm"></span>View
                 </button>
-                <a href="./create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5">
+                <a href="/dashboard/inventory/create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 hover:text-white hover:bg-indigo-800 transition-colors">
                     <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add
                 </a>
             </div>
@@ -14,11 +14,17 @@
                 <table class="w-full text-sm text-left text-gray-500">
                     <thead class="text-xs text-indigo-50 uppercase bg-indigo-600">
                         <tr>
+                        <td class="px-6 py-4">
+                                ID
+                            </td>
+                            <td class="px-6 py-4">
+                                Code
+                            </td>
                             <th scope="col" class="px-6 py-3">
-                                Product name
+                                Brand
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Color
+                                Product name
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Category
@@ -27,68 +33,47 @@
                                 Price
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Quantity
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                Apple MacBook Pro 17"
-                            </th>
-                            <td class="px-6 py-4">
-                                Silver
-                            </td>
-                            <td class="px-6 py-4">
-                                Laptop
-                            </td>
-                            <td class="px-6 py-4">
-                                $2999
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="bg-green-600 text-indigo-50 p-1 rounded-md">View</span>
-                                <span class="bg-orange-600 text-indigo-50 p-1 rounded-md">Edit</span>
-                                <span class="bg-red-600 text-indigo-50 p-1 rounded-md">Delete</span>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                Apple MacBook Pro 17"
-                            </th>
-                            <td class="px-6 py-4">
-                                Silver
-                            </td>
-                            <td class="px-6 py-4">
-                                Laptop
-                            </td>
-                            <td class="px-6 py-4">
-                                $2999
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="bg-green-600 text-indigo-50 p-1 rounded-md">View</span>
-                                <span class="bg-orange-600 text-indigo-50 p-1 rounded-md">Edit</span>
-                                <span class="bg-red-600 text-indigo-50 p-1 rounded-md">Delete</span>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                Apple MacBook Pro 17"
-                            </th>
-                            <td class="px-6 py-4">
-                                Silver
-                            </td>
-                            <td class="px-6 py-4">
-                                Laptop
-                            </td>
-                            <td class="px-6 py-4">
-                                $2999
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="bg-green-600 text-indigo-50 p-1 rounded-md">View</span>
-                                <span class="bg-orange-600 text-indigo-50 p-1 rounded-md">Edit</span>
-                                <span class="bg-red-600 text-indigo-50 p-1 rounded-md">Delete</span>
-                            </td>
-                        </tr>
+                        <?php
+                        foreach ($items as $item) {
+                        ?>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <?= $item['id'] ?>
+                                </th>
+                                <td class="px-6 py-4">
+                                    <?= $item['code'] ?>
+                                </td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <?= $item['brand'] ?>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <?= $item['name'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?= $item['category'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    Php <?= $item['price'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?= $item['qty'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-green-600 text-indigo-50 p-1 rounded-md">View</span>
+                                    <span class="bg-orange-600 text-indigo-50 p-1 rounded-md">Edit</span>
+                                    <span class="bg-red-600 text-indigo-50 p-1 rounded-md">Delete</span>
+                                </td>
+                            </tr>
+                        <?php
+                        } ?>
                     </tbody>
                 </table>
             </div>

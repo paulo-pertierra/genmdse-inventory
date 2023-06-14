@@ -40,6 +40,7 @@ $routes->get('/dashboard', 'Dashboard::index');
 
 $routes->get('/dashboard/inventory', 'Item::inventory');
 $routes->get('/dashboard/inventory/create', 'Item::create');
+$routes->post('/dashboard/inventory/create', 'Item::createItem');
 
 $routes->get('/dashboard/customers', 'Dashboard::customers');
 $routes->get('/dashboard/transactions', 'Dashboard::transactions');

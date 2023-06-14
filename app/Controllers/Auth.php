@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Libraries\Hash;
-use App\Models\UserModel;
 
 class Auth extends BaseController
 {
@@ -56,7 +55,6 @@ class Auth extends BaseController
         $name = $this->request->getPost('name');
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        $confirmPassword = $this->request->getPost('confirmPassword');
 
         $data = [
             'name' => $name,
