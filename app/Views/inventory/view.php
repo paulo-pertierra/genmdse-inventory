@@ -1,6 +1,5 @@
 <div class="p-4 sm:ml-72">
     <div class="mb-4 h-fit items-center justify-center rounded bg-indigo-100">
-
         <div class="relative overflow-x-auto p-4 rounded-lg">
             <div class="w-full my-2 flex font-semibold">
                 <a href="./" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 hover:text-white hover:bg-indigo-800 transition-colors">
@@ -25,7 +24,7 @@
                         <?php
                         }
                         ?>
-                        <form action="<?= base_url('/dashboard/inventory/update') ?>" method="POST">
+                        <form action="/inventory/<?= $item['id'] ?>/update" method="get">
                             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                 <div class="sm:col-span-1">
                                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Brand</label>

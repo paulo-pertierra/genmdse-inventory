@@ -40,7 +40,7 @@ class Item extends BaseController
          *                      UPDATE ITEM->'code', 'product name', 'description', 'qty', 'price'
          */
         $userModel = new UserModel();
-        $itemModel = new \App\Models\ItemModel();
+        $itemModel = new ItemModel();
         $loggedInUserId = session()->get('loggedInUser');
         $userInfo = $userModel->find($loggedInUserId);
         $itemData = $itemModel->findAll($limit = 5, $offset = 0);
@@ -123,6 +123,66 @@ class Item extends BaseController
             . view('template/dashboard/sidebar', Item::userData())
             . view('inventory/view', $data)
             . view('template/htmlend');
+    }
+
+    public function update($num)
+    {
+        $itemModel = new ItemModel();
+        $item = $itemModel->find($num);
+        $data = [
+            'id' => $num,
+            'item' => $item
+        ];
+        return view('template/htmlhead.php', Item::headerData())
+            . view('template/dashboard/sidebar', Item::userData())
+            . view('inventory/update', $data)
+            . view('template/htmlend');
+    }
+
+    public function updateItem($num)
+    {
+        $validated = $this->validate([
+            'brand' => 'required|min_length[2]',
+            'name' => 'required|',
+            'code' => 'required|min_length[2]|max_length[32]',
+            'category' => 'required',
+            'price' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'description' => 'max_length[1024]'
+        ]);
+
+        if (!$validated) {
+            return redirect()->to('/inventory/' . $num . '/update')->with('validation', $this->validator);
+        }
+
+        $brand = $this->request->getPost('brand');
+        $name = $this->request->getPost('name');
+        $code = $this->request->getPost('code');
+        $category = $this->request->getPost('category');
+        $price = $this->request->getPost('price');
+        $quantity = $this->request->getPost('quantity');
+        $description = $this->request->getPost('description');
+
+        $data = [
+            'brand' => $brand,
+            'name' => $name,
+            'code' => $code,
+            'category' => $category,
+            'price' => $price,
+            'qty' => $quantity,
+            'description' => $description
+        ];
+
+        $itemModel = new ItemModel();
+
+        $query = $itemModel->update($num, $data);
+
+        if(!$query)
+        {
+            return redirect()->to('/inventory/' . $num . '/update')->with('fail', 'Failed to edit the customer details.');
+        }
+
+        return redirect()->to('/inventory')->with('success', 'Update success.');
     }
 
     public function delete($num)

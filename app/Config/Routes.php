@@ -5,6 +5,11 @@ namespace Config;
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
+
+/**
+ * Filters Steup
+ */
+
 /*
  * --------------------------------------------------------------------
  * Router Setup
@@ -42,6 +47,8 @@ $routes->get('/inventory', 'Item::index');
 $routes->get('/inventory/create', 'Item::create');
 $routes->post('/inventory/create', 'Item::createItem');
 $routes->get('/inventory/(:num)', 'Item::view/$1');
+$routes->get('/inventory/(:num)/update', 'Item::update/$1');
+$routes->post('/inventory/(:num)/update', 'Item::updateItem/$1');
 $routes->post('/inventory/(:num)/delete', 'Item::delete/$1');
 
 $routes->get('/customer', 'Customer::index');

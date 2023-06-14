@@ -17,6 +17,13 @@ $validation = session()->getFlashdata('validation');
                 <section class=" max-w-2xl bg-white p-4 rounded-lg">
                     <div class=" max-w-2xl rounded-lg">
                         <h2 class="text-xl font-bold text-gray-900 py-4">Customer Details - ID: <?= $customer['id'] ?> | <?= $customer['name'] ?></h2>
+                        <?php
+                            if (!empty(session()->getFlashdata('fail'))) {
+                        ?>
+                            <div class="w-auto p-2 text-center text-white bg-red-500 rounded-lg m-4">Could not add to database.</div>
+                        <?php
+                        }
+                        ?>
                         <form action="/customer/<?= $customer['id'] ?>/update" method="POST">
                             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                 <div class="sm:col-span-1">

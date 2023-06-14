@@ -106,10 +106,10 @@ class Customer extends BaseController
         $query = $customerModel->insert($data);
 
         if (!$query) {
-            return redirect()->to('/inventory/create')->with('fail', 'Failed to register customer.');
+            return redirect()->to('/customer/create')->with('fail', 'Failed to register customer.');
         }
 
-        return redirect()->to('/inventory/create')->with('success', 'Registration success.');
+        return redirect()->to('/customer/create')->with('success', 'Registration success.');
     }
     
     public function view($num)
@@ -188,7 +188,7 @@ class Customer extends BaseController
 
         if(!$query)
         {
-            return redirect()->to('/customer')->with('fail', 'Failed to register the user.');
+            return redirect()->to('/customer/' . $num . '/update')->with('fail', 'Failed to edit the customer details.');
         }
 
         return redirect()->to('/customer')->with('success', 'Update success.');
