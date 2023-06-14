@@ -29,6 +29,6 @@
       </div>
     </div>
     <a href="/dashboard/preferences" class="block w-64 rounded-lg p-2 text-sm font-medium text-indigo-100 hover:cursor-pointer hover:bg-indigo-700"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-user-gear"></i></span> Preferences</a>
-    <a href="#" class="block w-64 rounded-lg p-2 text-sm font-medium text-indigo-100 hover:cursor-pointer hover:bg-indigo-700"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-right-from-bracket"></i></span> Log Out</a>
+    <form action="/auth/logout" method="post" class="appearance-none"><button class="block w-64 rounded-lg p-2 text-sm font-medium text-indigo-100 hover:cursor-pointer hover:bg-indigo-700 text-left"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-right-from-bracket"></i></span> Log Out</button></form>
   </div>
 </aside>

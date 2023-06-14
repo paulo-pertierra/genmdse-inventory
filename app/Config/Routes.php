@@ -34,34 +34,41 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/auth/register', 'Auth::register');
-$routes->get('/auth', 'Auth::index');
-$routes->post('/auth/registerUser', 'Auth::registerUser');
-$routes->post('/auth/loginUser', 'Auth::loginUser');
-$routes->post('/auth/logoutUser', 'Auth::logoutUser');
 
-$routes->get('/dashboard', 'Dashboard::index');
 
-$routes->get('/inventory', 'Item::index');
-$routes->get('/inventory/create', 'Item::create');
-$routes->post('/inventory/create', 'Item::createItem');
-$routes->get('/inventory/(:num)', 'Item::view/$1');
-$routes->get('/inventory/(:num)/update', 'Item::update/$1');
-$routes->post('/inventory/(:num)/update', 'Item::updateItem/$1');
-$routes->post('/inventory/(:num)/delete', 'Item::delete/$1');
+$routes->group('', ['filter' => 'AuthAlready'], function ($routes) {
+    $routes->get('/', 'Home::index');
+    $routes->get('/auth/register', 'Auth::register');
+    $routes->get('/auth', 'Auth::index');
+    $routes->post('/auth/registerUser', 'Auth::registerUser');
+    $routes->post('/auth/loginUser', 'Auth::loginUser');
+});
 
-$routes->get('/customer', 'Customer::index');
-$routes->get('/customer/create', 'Customer::create');
-$routes->post('/customer/create', 'Customer::createCustomer');
-$routes->get('/customer/(:num)', 'Customer::view/$1');
-$routes->get('/customer/(:num)/update', 'Customer::update/$1');
-$routes->post('/customer/(:num)/update', 'Customer::updateCustomer/$1');
-$routes->post('/customer/(:num)/delete', 'Item::delete/$1');
+$routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
+    $routes->post('/auth/logout', 'Auth::logoutUser');
 
-$routes->get('/transactions', 'Dashboard::transactions');
-$routes->get('/summary', 'Dashboard::summary');
-$routes->get('/preferences', 'Dashboard::preferences');
+    $routes->get('/dashboard', 'Dashboard::index');
+
+    $routes->get('/inventory', 'Item::index');
+    $routes->get('/inventory/create', 'Item::create');
+    $routes->post('/inventory/create', 'Item::createItem');
+    $routes->get('/inventory/(:num)', 'Item::view/$1');
+    $routes->get('/inventory/(:num)/update', 'Item::update/$1');
+    $routes->post('/inventory/(:num)/update', 'Item::updateItem/$1');
+    $routes->post('/inventory/(:num)/delete', 'Item::delete/$1');
+
+    $routes->get('/customer', 'Customer::index');
+    $routes->get('/customer/create', 'Customer::create');
+    $routes->post('/customer/create', 'Customer::createCustomer');
+    $routes->get('/customer/(:num)', 'Customer::view/$1');
+    $routes->get('/customer/(:num)/update', 'Customer::update/$1');
+    $routes->post('/customer/(:num)/update', 'Customer::updateCustomer/$1');
+    $routes->post('/customer/(:num)/delete', 'Item::delete/$1');
+
+    $routes->get('/transactions', 'Dashboard::transactions');
+    $routes->get('/summary', 'Dashboard::summary');
+    $routes->get('/preferences', 'Dashboard::preferences');
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing
