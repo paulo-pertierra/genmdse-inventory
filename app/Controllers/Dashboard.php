@@ -40,4 +40,23 @@ class Dashboard extends BaseController
         .view('dashboard/preferences')
         .view('template/htmlend');
     }
+
+    public function customers()
+    {
+        /**
+         * Customers contains: CREATE CUSTOMER-> 'id', 'customer name', 'contact', 'address'
+         */
+    }
+
+    public function transactions()
+    {
+        /**
+         * Transactions contains: CREATE TRANSACTION 'customer name', 'items' 'price'
+         */
+    }
+
+    public function summary()
+    {
+
+    }
 }

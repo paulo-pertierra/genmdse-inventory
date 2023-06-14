@@ -34,8 +34,16 @@ $routes->get('/auth/register', 'Auth::register');
 $routes->get('/auth', 'Auth::index');
 $routes->post('/auth/registerUser', 'Auth::registerUser');
 $routes->post('/auth/loginUser', 'Auth::loginUser');
+$routes->post('/auth/logoutUser', 'Auth::logoutUser');
 
 $routes->get('/dashboard', 'Dashboard::index');
+
+$routes->get('/dashboard/inventory', 'Item::inventory');
+$routes->get('/dashboard/inventory/create', 'Item::create');
+
+$routes->get('/dashboard/customers', 'Dashboard::customers');
+$routes->get('/dashboard/transactions', 'Dashboard::transactions');
+$routes->get('/dashboard/summary', 'Dashboard::summary');
 $routes->get('/dashboard/preferences', 'Dashboard::preferences');
 /*
  * --------------------------------------------------------------------
