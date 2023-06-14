@@ -14,7 +14,7 @@
                 <table class="w-full text-sm text-left text-gray-500">
                     <thead class="text-xs text-indigo-50 uppercase bg-indigo-600">
                         <tr>
-                        <td class="px-6 py-4">
+                            <td class="px-6 py-4">
                                 ID
                             </td>
                             <td class="px-6 py-4">
@@ -67,9 +67,10 @@
                                     <?= $item['qty'] ?>
                                 </td>
                                 <td class="px-6 py-4 flex items-center">
-                                    <a href="/dashboard/inventory/<?= $item['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View</a>
-                                    <span class="bg-orange-600 text-indigo-50 p-1 rounded-md mx-0.5">Edit</span>
-                                    <span class="bg-red-600 text-indigo-50 p-1 rounded-md mx-0.5">View</span>
+                                    <a href="/dashboard/inventory/<?= $item['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View/Edit</a>
+                                    <form action="/dashboard/inventory/delete/<?= $item['id'] ?>" method="POST">
+                                        <button type="submit" class="bg-red-600 text-indigo-50 p-1 rounded-md mx-0.5">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php

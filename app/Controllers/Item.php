@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ItemModel;
 use App\Models\UserModel;
 
 class Item extends BaseController
@@ -39,7 +40,7 @@ class Item extends BaseController
 
         $data = [
             'items' => $itemData
-        ];        
+        ];
 
         return view('template/htmlhead')
             . view('template/dashboard/sidebar', Item::userData())
@@ -50,9 +51,9 @@ class Item extends BaseController
     public function create()
     {
         return view('template/htmlhead')
-        . view('template/dashboard/sidebar', $data = Item::userData())
-        . view('dashboard/inventory/create')
-        . view('template/htmlend');
+            . view('template/dashboard/sidebar', $data = Item::userData())
+            . view('dashboard/inventory/create')
+            . view('template/htmlend');
     }
 
     public function createItem()
@@ -67,12 +68,11 @@ class Item extends BaseController
             'description' => 'max_length[1024]'
         ]);
 
-        if (!$validated) 
-        {
+        if (!$validated) {
             return view('template/htmlhead.php')
-                 . view('template/dashboard/sidebar', $data = Item::userData())
-                 . view('dashboard/inventory/create', ['validation' => $this->validator])
-                 . view('template/htmlend');
+                . view('template/dashboard/sidebar', $data = Item::userData())
+                . view('dashboard/inventory/create', ['validation' => $this->validator])
+                . view('template/htmlend');
         }
 
         $brand = $this->request->getPost('brand');
@@ -96,11 +96,25 @@ class Item extends BaseController
         $itemModel = new \App\Models\ItemModel();
         $query = $itemModel->insert($data);
 
-        if(!$query)
-        {
+        if (!$query) {
             return redirect()->to('/dashboard/inventory/create')->with('fail', 'Failed to register the user.');
         }
 
         return redirect()->to('/dashboard/inventory/create')->with('success', 'Registration success.');
+    }
+
+    public function view($num)
+    {
+        $itemModel = new ItemModel();
+        $item = $itemModel->find($num);
+        $data = [
+            'id' => $num,
+            'item' => $item
+        ];
+
+        return view('template/htmlhead.php')
+            . view('template/dashboard/sidebar', Item::userData())
+            . view('dashboard/inventory/view', $data)
+            . view('template/htmlend');
     }
 }

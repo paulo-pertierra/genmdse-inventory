@@ -2,7 +2,7 @@
   <div class="rounded-lg p-4">
     <div class="mb-4 grid grid-cols-3 gap-4">
       <div class="flex h-24 items-center justify-center rounded bg-indigo-100">
-        <p class="text-2xl text-gray-700">24 Items</p>
+        <p class="text-2xl text-gray-700"><?= $itemsCount ?> Items</p>
       </div>
       <div class="flex h-24 items-center justify-center rounded bg-blue-100">
         <p class="text-2xl text-gray-700">10 Customers</p>
