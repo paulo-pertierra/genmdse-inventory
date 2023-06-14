@@ -5,7 +5,7 @@
         <p class="text-2xl text-gray-700"><?= $itemsCount ?> Items</p>
       </div>
       <div class="flex h-24 items-center justify-center rounded bg-blue-100">
-        <p class="text-2xl text-gray-700">10 Customers</p>
+        <p class="text-2xl text-gray-700"><?= $customersCount ?> Customers</p>
       </div>
       <div class="flex h-24 items-center justify-center rounded bg-pink-100">
         <p class="text-2xl text-gray-700">44 Transactions</p>

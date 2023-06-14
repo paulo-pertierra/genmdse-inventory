@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\CustomerModel;
 use App\Models\ItemModel;
 use App\Models\UserModel;
 
@@ -15,10 +16,14 @@ class Dashboard extends BaseController
         $userInfo = $userModel->find($loggedInUserId);
         $itemModel = new ItemModel();
         $itemsCount = $itemModel->countAllResults();
+
+        $customerModel = new CustomerModel();
+        $customersCount = $customerModel->countAllResults();
         $data = [
             'title' => 'Admin Dashboard',
             'userInfo' => $userInfo,
-            'itemsCount' => $itemsCount
+            'itemsCount' => $itemsCount,
+            'customersCount' => $customersCount
         ];
 
         $header = [

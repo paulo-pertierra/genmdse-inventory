@@ -13,7 +13,7 @@ class CustomerModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name', 'address', 'contact_number', 'contact_email'];
+    protected $allowedFields    = ['name', 'address', 'contact_number', 'contact_email', 'remarks'];
 
     // Dates
     protected $useTimestamps = false;

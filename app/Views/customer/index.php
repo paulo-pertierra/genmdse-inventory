@@ -1,25 +1,12 @@
-<?php 
-$items = [
-    [
-        'id' => '1',
-        'name' => 'A',
-        'address' => 'A',
-        'contact_number' => 'A',
-        'contact_email' => 'plumbing',
-        'created_at' => '2023-06-14',
-    ]
-]
-?>
-
 <div class="p-4 sm:ml-72">
     <div class="mb-4 h-fit items-center justify-center rounded bg-indigo-100">
 
         <div class="relative overflow-x-auto p-4 rounded-lg">
             <div class="w-full my-2 flex font-semibold">
-                <button href="./" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 hover:text-white hover:bg-indigo-800 transition-colors disabled:bg-indigo-950" disabled>
+                <button href="/customer" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 hover:text-white hover:bg-indigo-800 transition-colors disabled:bg-indigo-950" disabled>
                     <span class="fa-solid fa-eye mr-1.5 text-sm"></span>View
                 </button>
-                <a href="customer/create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 disabled:bg-indigo-950" >
+                <a href="/customer/create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 disabled:bg-indigo-950" >
                     <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add Customer
                 </a>
             </div>
@@ -50,32 +37,32 @@ $items = [
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="overflow-auto">
                         <?php
-                        foreach ($items as $item) {
+                        foreach ($customers as $customer) {
                         ?>
                             <tr class="bg-white border-b">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    <?= $item['id'] ?>
+                                    <?= $customer['id'] ?>
                                 </th>
                                 <td class="px-6 py-4">
-                                    <?= $item['name'] ?>
+                                    <?= $customer['name'] ?>
                                 </td>
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    <?= $item['address'] ?>
+                                    <?= $customer['address'] ?>
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    <?= $item['contact_email'] ?>
+                                    <?= $customer['contact_email'] ?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <?= $item['contact_number'] ?>
+                                    <?= $customer['contact_number'] ?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    Php <?= $item['created_at']?>
+                                    <?= $customer['created_at']?>
                                 </td>
                                 <td class="px-6 py-4 flex items-center">
-                                    <a href="/inventory/<?= $item['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View/Edit</a>
-                                    <form action="/inventory/<?= $item['id'] ?>/delete" method="POST">
+                                    <a href="/customer/<?= $customer['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View/Edit</a>
+                                    <form action="/customer/<?= $customer['id'] ?>/delete" method="POST">
                                         <button type="submit" class="bg-red-600 text-indigo-50 p-1 rounded-md mx-0.5">Delete</button>
                                     </form>
                                 </td>

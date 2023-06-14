@@ -45,7 +45,10 @@ $routes->get('/inventory/(:num)', 'Item::view/$1');
 $routes->post('/inventory/(:num)/delete', 'Item::delete/$1');
 
 $routes->get('/customer', 'Customer::index');
-$router->get('/customer/create', 'Customer::create');
+$routes->get('/customer/create', 'Customer::create');
+$routes->post('/customer/create', 'Customer::createCustomer');
+$routes->get('/customer/(:num)', 'Customer::view/$1');
+$routes->post('/customer/(:num)/delete', 'Item::delete/$1');
 
 $routes->get('/transactions', 'Dashboard::transactions');
 $routes->get('/summary', 'Dashboard::summary');
