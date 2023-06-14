@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Libraries\Hash;
+use App\Models\UserModel;
 
 class Auth extends BaseController
 {
@@ -72,5 +73,43 @@ class Auth extends BaseController
         }
 
         return redirect()->to('auth/register')->with('success', 'Registration success.');
+    }
+
+    public function loginUser()
+    {
+        $validated = $this->validate([
+            'email' => 'required|valid_email',
+            'password' => 'required|min_length[8]|max_length[32]',
+        ]); 
+
+        if (!$validated) {
+            return view('template/htmlhead.php')
+            . view('auth/login', ['validation' => $this->validator])
+            . view('template/htmlend');
+        }
+
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+
+        $userModel = new \App\Models\UserModel();
+        $userData = $userModel->where('email', $email)->first();
+
+        if (!$userData) {
+            session()->setFlashdata('fail', 'Incorrect email.');
+            return redirect()->to('auth');
+        }
+
+        $checkPassword = Hash::check($password, $userData['password']);
+
+        if(!$checkPassword)
+        {
+            session()->setFlashdata('fail', 'Incorrect password.');
+            return redirect()->to('auth');
+        }
+
+        $userId = $userData['id'];
+
+        session()->set('loggedInUser', $userId);
+        return redirect()->to('/dashboard');
     }
 }

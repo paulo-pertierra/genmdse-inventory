@@ -1,15 +1,27 @@
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your GenMDSE Account</h2>
+    <?php 
+      if(!empty(session()->getFlashdata('success'))) {
+        ?>
+          <div class="w-auto p-2 text-center text-white bg-green-500 rounded-lg m-4">Successly registered.</div>
+        <?php
+      } else if(!empty(session()->getFlashdata('fail'))) {
+        ?>
+          <div class="w-auto p-2 text-center text-white bg-red-500 rounded-lg m-4">Your credentials did not match our records.</div>
+        <?php
+      }
+    ?>
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
+    <form class="space-y-6" action="<?= base_url('auth/loginUser') ?>" method="POST">
       <div>
         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
         <div class="mt-2">
           <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
         </div>
+        <span class="text-sm text-red-500"><?= isset($validation) ? display_form_errors($validation, 'email') : '' ?></span>
       </div>
 
       <div>
@@ -17,6 +29,7 @@
         <div class="mt-2">
           <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
         </div>
+        <span class="text-sm text-red-500"><?= isset($validation) ? display_form_errors($validation, 'password') : '' ?></span>
       </div>
 
       <div>
