@@ -45,6 +45,8 @@ $routes->get('/inventory/(:num)', 'Item::view/$1');
 $routes->post('/inventory/(:num)/delete', 'Item::delete/$1');
 
 $routes->get('/customer', 'Customer::index');
+$router->get('/customer/create', 'Customer::create');
+
 $routes->get('/transactions', 'Dashboard::transactions');
 $routes->get('/summary', 'Dashboard::summary');
 $routes->get('/preferences', 'Dashboard::preferences');
