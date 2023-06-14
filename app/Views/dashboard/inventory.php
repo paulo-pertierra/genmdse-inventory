@@ -68,7 +68,7 @@
                                 </td>
                                 <td class="px-6 py-4 flex items-center">
                                     <a href="/dashboard/inventory/<?= $item['id'] ?>" class="bg-green-600 text-indigo-50 p-1 rounded-md mx-0.5">View/Edit</a>
-                                    <form action="/dashboard/inventory/delete/<?= $item['id'] ?>" method="POST">
+                                    <form action="/dashboard/inventory/<?= $item['id'] ?>/delete" method="POST">
                                         <button type="submit" class="bg-red-600 text-indigo-50 p-1 rounded-md mx-0.5">Delete</button>
                                     </form>
                                 </td>

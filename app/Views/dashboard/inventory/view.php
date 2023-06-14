@@ -1,9 +1,4 @@
 <div class="p-4 sm:ml-72">
-    <?= $id ?>
-    <?= $item['name']?>
-</div>
-
-<div class="p-4 sm:ml-72">
     <div class="mb-4 h-fit items-center justify-center rounded bg-indigo-100">
 
         <div class="relative overflow-x-auto p-4 rounded-lg">
@@ -18,7 +13,7 @@
             <div class=" overflow-hidden">
                 <section class=" max-w-2xl bg-white p-4 rounded-lg">
                     <div class=" max-w-2xl rounded-lg">
-                        <h2 class="text-xl font-bold text-gray-900 py-4">Add a new product</h2>
+                        <h2 class="text-xl font-bold text-gray-900 py-4">Product Details - ID: <?= $item['id'] ?> | <?= $item['brand'] ?> <?= $item['name'] ?></h2>
                         <?php
                         if (!empty(session()->getFlashdata('success'))) {
                         ?>
@@ -31,10 +26,6 @@
                         }
                         ?>
                         <form action="<?= base_url('/dashboard/inventory/update') ?>" method="POST">
-                        <div class="sm:col-span-1">
-                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">ID</label>
-                                    <input type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5     dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="<?= $item['id'] ?>" disabled>
-                                </div>
                             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                 <div class="sm:col-span-1">
                                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Brand</label>

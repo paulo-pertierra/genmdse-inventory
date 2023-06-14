@@ -117,4 +117,12 @@ class Item extends BaseController
             . view('dashboard/inventory/view', $data)
             . view('template/htmlend');
     }
+
+    public function delete($num)
+    {
+        $itemModel = new ItemModel();
+        $query = $itemModel->delete($num);
+
+        return redirect()->to('/dashboard/inventory');
+    }
 }
