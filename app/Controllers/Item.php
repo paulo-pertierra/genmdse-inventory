@@ -26,7 +26,14 @@ class Item extends BaseController
         return $data;
     }
 
-    public function inventory()
+    public static function headerData()
+    {
+        return [
+            'location' => 'Inventory'
+        ];
+    }
+
+    public function index()
     {
         /**
          *  Inventory contains: CREATE ITEM->'code', 'product name', 'description', 'qty', 'price'
@@ -42,7 +49,7 @@ class Item extends BaseController
             'items' => $itemData
         ];
 
-        return view('template/htmlhead')
+        return view('template/htmlhead', Item::headerData())
             . view('template/dashboard/sidebar', Item::userData())
             . view('dashboard/inventory', $data)
             . view('template/htmlend');
@@ -50,7 +57,7 @@ class Item extends BaseController
 
     public function create()
     {
-        return view('template/htmlhead')
+        return view('template/htmlhead', Item::headerData())
             . view('template/dashboard/sidebar', $data = Item::userData())
             . view('dashboard/inventory/create')
             . view('template/htmlend');
@@ -69,7 +76,7 @@ class Item extends BaseController
         ]);
 
         if (!$validated) {
-            return view('template/htmlhead.php')
+            return view('template/htmlhead.php', Item::headerData())
                 . view('template/dashboard/sidebar', $data = Item::userData())
                 . view('dashboard/inventory/create', ['validation' => $this->validator])
                 . view('template/htmlend');
@@ -112,7 +119,7 @@ class Item extends BaseController
             'item' => $item
         ];
 
-        return view('template/htmlhead.php')
+        return view('template/htmlhead.php', Item::headerData())
             . view('template/dashboard/sidebar', Item::userData())
             . view('dashboard/inventory/view', $data)
             . view('template/htmlend');

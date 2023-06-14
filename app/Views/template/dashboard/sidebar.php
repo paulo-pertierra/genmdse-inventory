@@ -1,8 +1,16 @@
-<aside class="fixed left-0 top-0 h-screen w-fit rounded-r-lg bg-indigo-600 p-4">
-  <div class="flex items-center pb-8">
-    <img src="https://fakeimg.pl/64x64?text=GENMDSE" class="rounded-full" alt="" />
+<div class="w-screen bg-indigo-600 h-16">
+    <div class="sm:ml-72 flex items-center h-16">
+      <div class="h-8">
+      <div>
+      <h1 class="inline font-semibold text-2xl text-indigo-50 px-4"> <?= $location ?></h1>
+      </div>
+    </div>
+  </div>
+<aside id="aside" class="fixed left-0 top-0 h-screen w-fit rounded-r-lg bg-indigo-600 pb-4 px-4 pt-2.5">
+  <div class="flex items-center pb-4">
+    <img src="https://fakeimg.pl/48x48?text=GENMDSE" class=" rounded-xl" alt="" />
     <div class="mx-4">
-      <p class="font-semibold text-indigo-50">Gen MDSE Dashboard</p>
+      <p class="font-semibold text-indigo-50">Gen MDSE</p>
       <p class="text-sm text-indigo-50"><?= $title ?></p>
     </div>
   </div>

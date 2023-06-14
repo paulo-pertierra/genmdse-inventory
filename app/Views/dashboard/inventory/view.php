@@ -58,6 +58,16 @@
                                     <textarea id="description" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500     dark:focus:ring-primary-500 dark:focus:border-primary-500" name="description" placeholder="<?= $item['description'] ?>" disabled></textarea>
                                 </div>
                             </div>
+                            <div class="grid gap-4 sm:grid-cols-2 sm:gap-6 mt-4">
+                                <div class="sm:col-span-1">
+                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Created At</label>
+                                    <input type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5     dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="<?= $item['created_at'] ?>" disabled>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Updated At</label>
+                                    <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="<?= $item['updated_at'] ?>" disabled>
+                                </div>
+                            </div>
                             <button type="submit" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mt-8 mb-2 w-full hover:text-white hover:bg-indigo-800 transition-colors">
                                 Edit Product
                             </button>

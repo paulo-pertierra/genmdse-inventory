@@ -21,7 +21,11 @@ class Dashboard extends BaseController
             'itemsCount' => $itemsCount
         ];
 
-        return view('template/htmlhead')
+        $header = [
+            'location' => 'Dashboard'
+        ];
+
+        return view('template/htmlhead', $header)
               .view('template/dashboard/sidebar', $data)
               .view('dashboard/index', $data)
               .view('template/htmlend');

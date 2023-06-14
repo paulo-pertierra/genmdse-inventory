@@ -7,6 +7,12 @@ use App\Libraries\Hash;
 
 class Auth extends BaseController
 {
+    public function headerData()
+    {
+        return [
+            'location' => 'Authenticate your account.'
+        ];
+    }
 
     public function __construct()
     {
@@ -15,7 +21,7 @@ class Auth extends BaseController
 
     public function index()
     {
-        return view('template/htmlhead.php')
+        return view('template/htmlhead.php', Auth::headerData())
              . view('auth/login')
              . view('template/htmlend');
     }
