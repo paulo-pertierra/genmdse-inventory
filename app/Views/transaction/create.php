@@ -1,6 +1,8 @@
 <?php 
 $item = [
-    'id' => 1
+    'id' => 1,
+    'product_name' => 'emerald pvc',
+    'qty' => 4
 ]
 ?>
 <div class="p-4 sm:ml-72">
@@ -57,23 +59,31 @@ $item = [
                                     <div class="col-span-3 block text-sm font-medium text-gray-900 placeholder:text-gray-400">Quantity</div>
                                     <div class="col-span-1 block text-sm font-medium text-gray-900 placeholder:text-gray-400">Action</div>
                                     <div class="col-span-4">
-                                        <input id="payment-method" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 cursor-default" readonly>
+                                        <input type="number" name="cart_item_id[]" value="<?php $item['id'] ?>" hidden>
+                                        <input id="cart-item-name[]" name="cart_item_name[]" value="<?= $item['product_name'] ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 cursor-default" readonly>
                                     </div>
                                     <div class="col-span-3">
-                                        <input id="payment-method" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 cursor-default" readonly>
+                                        <input id="cart-item-qty[]" name="cart_item_qty[]" value="<?= $item['qty'] ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 cursor-default" readonly>
                                     </div>
                                     <div class="col-span-1">
                                         <button class="w-full bg-red-500 hover:bg-red-700 bottom-0 p-2 m-0.5 rounded-lg font-bold text-red-50 transition-colors ease-in-out" formaction="/transaction/items/<?= $item['id'] ?>/delete">Delete</button>
                                     </div>
                                     <hr class="col-span-8 mt-4">
                                     <div class="col-span-4">
-                                        <input id="payment-method" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                        <select id="new-cart-item" name="new_cart_item" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                            <option value="{'id': 1, 'name': 'Emerald 1/4'}">Emerald PVC 1/4</option>
+                                            <option value="2">Emerald PVC 1/2</option>
+                                            <option value="3">Emerald PVC 3/4</option>
+                                        </select>
                                     </div>
                                     <div class="col-span-3">
-                                        <input type="number" id="payment-method" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                        <input type="number" id="new_cart_item-qty" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                     </div>
                                     <div class="col-span-1">
                                         <button class="w-full bg-green-600 hover:bg-green-700 bottom-0 p-2 m-0.5 rounded-lg font-bold text-red-50 transition-colors ease-in-out" formaction="/transaction/items/update">Add</button>
+                                    </div>
+                                    <div class="col-span-8">
+                                    <button class="w-full bg-orange-600 hover:bg-red-700 bottom-0 p-2 m-0.5 rounded-lg font-bold text-red-50 transition-colors ease-in-out" formaction="/transaction/items/delete">Clear</button>
                                     </div>
                                 </div>
                                 <div class="sm:col-span-2">
@@ -81,16 +91,16 @@ $item = [
                                     <input type="number" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none">
                                 </div>
                                 <div class="col-span-1">
-                                    <label for="payment_due" class="block mb-2 text-sm font-medium text-gray-900 placeholder:text-gray-400 cursor-default">Payment Change</label>
-                                    <input type="text" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none" readonly>
+                                    <label for="payment_due" class="block mb-2 text-sm font-medium text-gray-900 placeholder:text-gray-400">Payment Change</label>
+                                    <input type="text" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none cursor-default" readonly>
                                 </div>
                                 <div class="col-span-1">
                                     <label for="payment_due" class="block mb-2 text-sm font-medium text-gray-900 placeholder:text-gray-400 cursor-default">Payment Due</label>
-                                    <input type="text" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none" readonly>
+                                    <input type="text" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none cursor-default" readonly>
                                 </div>
                             </div>
                             <button type="submit" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mt-8 mb-2 w-full hover:text-white hover:bg-indigo-800 transition-colors">
-                                Add product
+                                Complete Transaction
                             </button>
                         </form>
                     </div>
