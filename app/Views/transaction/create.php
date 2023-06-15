@@ -15,6 +15,9 @@ $item = [
                 <button href="./create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 disabled:bg-indigo-950" disabled>
                     <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add Item
                 </button>
+                <?php 
+
+                ?>
             </div>
             <div class=" overflow-hidden">
                 <section class=" max-w-2xl bg-white p-4 rounded-lg">
@@ -77,7 +80,7 @@ $item = [
                                         </select>
                                     </div>
                                     <div class="col-span-3">
-                                        <input type="number" id="new_cart_item-qty" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                        <input type="number" id="new_cart_item_qty" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                     </div>
                                     <div class="col-span-1">
                                         <button class="w-full bg-green-600 hover:bg-green-700 bottom-0 p-2 m-0.5 rounded-lg font-bold text-red-50 transition-colors ease-in-out" formaction="/transaction/items/update">Add</button>

@@ -39,7 +39,7 @@ class Transaction extends BaseController
         $transactions = $builder->get()->getResult('array');
 
         $data = [
-            'transactions' => $transactions
+            'transactions' => $transactions,
         ];
 
         return view('template/htmlhead', Transaction::headerData())
@@ -49,17 +49,20 @@ class Transaction extends BaseController
     }
 
     public function create()
-    {   
+    {
         $session = session();
 
-        if(!isset($_SESSION['cart']))
-        {
+        if (!isset($_SESSION['cart'])) {
             $session->set('cart', []);
         }
 
+        $data = [
+            'cartItems' => session()->get('cart')
+        ];
+
         return view('template/htmlhead', Transaction::headerData())
             . view('template/dashboard/sidebar', Transaction::userData())
-            . view('/transaction/create')
+            . view('/transaction/create', $data)
             . view('template/htmlend');
     }
 
@@ -68,8 +71,12 @@ class Transaction extends BaseController
         $session = session();
 
         $cart = $session->get('cart');
-        array_push($cart,
-            $this->request->getPost('new_cart_item')
+        array_push(
+            $cart,
+            [
+                'cartItem' => $this->request->getPost('new_cart_item'),
+                'cartItemQty' => $this->request->getPost('new_cart_item_qty')
+            ]
         );
 
         $session->set('cart', $cart);
@@ -79,8 +86,7 @@ class Transaction extends BaseController
 
     public function deleteAllCartItems()
     {
-        if(isset($_SESSION['cart']))
-        {
+        if (isset($_SESSION['cart'])) {
             $session = session();
             unset($_SESSION['cart']);
 
