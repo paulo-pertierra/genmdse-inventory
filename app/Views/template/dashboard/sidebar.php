@@ -1,4 +1,4 @@
-<div class="w-screen bg-indigo-600 h-16">
+<div class="w-full bg-indigo-600 h-16">
     <div class="sm:ml-72 flex items-center h-16">
       <div class="h-8">
       <div>
