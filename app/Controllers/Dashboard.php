@@ -9,29 +9,41 @@ use App\Models\UserModel;
 
 class Dashboard extends BaseController
 {
+    public static function userData()
+    {
+        $userData = new UserModel();
+        $loggedInUserId = session()->get('loggedInUser');
+        $userInfo = $userData->find($loggedInUserId);
+
+        $data = [
+            'title' => 'Admin Dashboard',
+            'userInfo' => $userInfo
+        ];
+        return $data;
+    }
+
+    public static function headerData()
+    {
+        return [
+            'location' => 'Dashboard'
+        ];
+    }
+
     public function index()
     {
-        $userModel = new UserModel();
-        $loggedInUserId = session()->get('loggedInUser');
-        $userInfo = $userModel->find($loggedInUserId);
         $itemModel = new ItemModel();
         $itemsCount = $itemModel->countAllResults();
 
         $customerModel = new CustomerModel();
         $customersCount = $customerModel->countAllResults();
+        
         $data = [
-            'title' => 'Admin Dashboard',
-            'userInfo' => $userInfo,
-            'itemsCount' => $itemsCount,
-            'customersCount' => $customersCount
+            'customersCount' => $customersCount,
+            'itemsCount' => $itemsCount
         ];
 
-        $header = [
-            'location' => 'Dashboard'
-        ];
-
-        return view('template/htmlhead', $header)
-              .view('template/dashboard/sidebar', $data)
+        return view('template/htmlhead', Dashboard::headerData())
+              .view('template/dashboard/sidebar', Dashboard::userData())
               .view('dashboard/index', $data)
               .view('template/htmlend');
     }
@@ -51,24 +63,5 @@ class Dashboard extends BaseController
         .view('template/dashboard/sidebar', $data)
         .view('dashboard/preferences')
         .view('template/htmlend');
-    }
-
-    public function customers()
-    {
-        /**
-         * Customers contains: CREATE CUSTOMER-> 'id', 'customer name', 'contact', 'address'
-         */
-    }
-
-    public function transactions()
-    {
-        /**
-         * Transactions contains: CREATE TRANSACTION 'customer name', 'items' 'price'
-         */
-    }
-
-    public function summary()
-    {
-
     }
 }

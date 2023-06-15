@@ -11,7 +11,7 @@
     <img src="https://fakeimg.pl/48x48?text=GENMDSE" class=" rounded-xl" alt="" />
     <div class="mx-4">
       <p class="font-semibold text-indigo-50">Gen MDSE</p>
-      <p class="text-sm text-indigo-50"><?= $title ?></p>
+      <p class="text-sm text-indigo-50">Admin Dashboard</p>
     </div>
   </div>
   <div>

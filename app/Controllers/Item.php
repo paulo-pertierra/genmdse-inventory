@@ -39,11 +39,8 @@ class Item extends BaseController
          *  Inventory contains: CREATE ITEM->'code', 'product name', 'description', 'qty', 'price'
          *                      UPDATE ITEM->'code', 'product name', 'description', 'qty', 'price'
          */
-        $userModel = new UserModel();
         $itemModel = new ItemModel();
-        $loggedInUserId = session()->get('loggedInUser');
-        $userInfo = $userModel->find($loggedInUserId);
-        $itemData = $itemModel->findAll($limit = 5, $offset = 0);
+        $itemData = $itemModel->findAll(5, 0);
 
         $data = [
             'items' => $itemData
