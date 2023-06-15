@@ -49,10 +49,29 @@ class Transaction extends BaseController
     }
 
     public function create()
-    {
+    {   
+        $session = session();
+
+        if(!isset($_SESSION['cart']))
+        {
+            $session->set('cart', ['calibo', 'aklan']);
+        }
+
         return view('template/htmlhead', Transaction::headerData())
             . view('template/dashboard/sidebar', Transaction::userData())
             . view('/transaction/create')
             . view('template/htmlend');
+    }
+
+    public function updateItemsCart()
+    {
+        $session = session();
+
+        $cart = $session->get('cart');
+        array_push($cart, 'catol');
+
+        $session->set('cart', $cart);
+
+        return json_encode(session()->get('cart'));
     }
 }
