@@ -31,17 +31,20 @@ class Transaction extends BaseController
 
     public function index()
     {
+        $db = \Config\Database::connect();
+        $builder = $db->table('transactions t')->distinct();
+        $builder->select('t.id, customers.name, t.transaction_type, t.total_price, t.payment_amount, t.payment_change');
+        $builder->from('transactions');
+        $builder->join('customers', 't.customer_id = customers.id');
+        $transactions = $builder->get()->getResult('array');
+
         $data = [
-            'items' => [
-                [
-                    ''
-                ]
-            ]
+            'transactions' => $transactions
         ];
 
         return view('template/htmlhead', Transaction::headerData())
             . view('template/dashboard/sidebar', Transaction::userData())
-            . view('/inventory/index', $data)
+            . view('/transaction/index', $data)
             . view('template/htmlend');
     }
 }
