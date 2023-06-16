@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\CustomerModel;
 use App\Models\ItemModel;
 use App\Models\UserModel;
 
@@ -56,8 +57,12 @@ class Transaction extends BaseController
             $session->set('cart', []);
         }
 
+        $customerModel = new CustomerModel();
+        $customers = $customerModel->findAll();
+
         $data = [
-            'cartItems' => session()->get('cart')
+            'cartItems' => session()->get('cart'),
+            'customers' => $customers
         ];
 
         return view('template/htmlhead', Transaction::headerData())

@@ -1,9 +1,9 @@
-<?php 
+<?php
 $item = [
     'id' => 1,
     'product_name' => 'emerald pvc',
     'qty' => 4
-]
+];
 ?>
 <div class="p-4 sm:ml-72">
     <div class="mb-4 h-fit items-center justify-center rounded bg-indigo-100">
@@ -15,7 +15,7 @@ $item = [
                 <button href="./create" class="bg-indigo-600 text-indigo-50 py-2 px-4 rounded-lg mr-1.5 disabled:bg-indigo-950" disabled>
                     <span class="fa-solid fa-plus mr-1.5 text-sm"></span>Add Item
                 </button>
-                <?php 
+                <?php
 
                 ?>
             </div>
@@ -40,9 +40,12 @@ $item = [
                                     <label for="customer" class="block mb-2 text-sm font-medium text-gray-900 placeholder:text-gray-400">Customer Name</label>
                                     <select id="customer" name="customer_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                         <option disabled selected="">Select customer name</option>
-                                        <option value="1">We'll have to</option>
-                                        <option value="2">loop this</option>
-                                        <option value="3">later =)</option>
+                                        <?php foreach($customers as $customer) {
+                                        ?>
+                                            <option value="<?= $customer['id'] ?>"><?= $customer['name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
                                     </select>
                                     <span class="text-xs text-red-500"><?= isset($validation) ? display_form_errors($validation, 'customer') : '' ?></span>
                                 </div>
@@ -50,9 +53,8 @@ $item = [
                                     <label for="payment-method" class="block mb-2 text-sm font-medium text-gray-900 placeholder:text-gray-400">Payment Method</label>
                                     <select id="payment-method" name="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                         <option disabled selected="">Select payment method</option>
-                                        <option value="electrical">Electrical</option>
-                                        <option value="plumbing">Plumbing</option>
-                                        <option value="misc">Misc.</option>
+                                        <option value="CASH">Cash</option>
+                                        <option value="CREDIT">Credit</option>
                                     </select>
                                     <span class="text-xs text-red-500"><?= isset($validation) ? display_form_errors($validation, 'payment_method') : '' ?></span>
                                 </div>
@@ -86,7 +88,7 @@ $item = [
                                         <button class="w-full bg-green-600 hover:bg-green-700 bottom-0 p-2 m-0.5 rounded-lg font-bold text-red-50 transition-colors ease-in-out" formaction="/transaction/items/update">Add</button>
                                     </div>
                                     <div class="col-span-8">
-                                    <button class="w-full bg-orange-600 hover:bg-red-700 bottom-0 p-2 m-0.5 rounded-lg font-bold text-red-50 transition-colors ease-in-out" formaction="/transaction/items/delete">Clear</button>
+                                        <button class="w-full bg-orange-600 hover:bg-red-700 bottom-0 p-2 m-0.5 rounded-lg font-bold text-red-50 transition-colors ease-in-out" formaction="/transaction/items/delete">Clear</button>
                                     </div>
                                 </div>
                                 <div class="sm:col-span-2">
