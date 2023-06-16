@@ -1,6 +1,7 @@
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<div id ="auth-bg" class="flex justify-center items-center w-screen h-screen">
+<div class="flex h-fit w-96 mx-auto flex-col justify-center px-6 py-12 lg:px-8 shadow-lg border-gray-100 border rounded-tr-2xl rounded-bl-2xl">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your GenMDSE Account</h2>
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your <br> GenMDSE Account</h2>
     <?php 
       if(!empty(session()->getFlashdata('success'))) {
         ?>
@@ -38,3 +39,6 @@
     </form>
   </div>
 </div>
+</div>
+<style>
+</style>
