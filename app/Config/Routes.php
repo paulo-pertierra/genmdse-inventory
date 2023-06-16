@@ -67,8 +67,10 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
 
     $routes->get('/transaction', 'Transaction::index');
     $routes->get('/transaction/create', 'Transaction::create');
+    $routes->post('/transaction/create', 'Transaction::createTransaction');
     $routes->post('transaction/items/update', 'Transaction::updateCartItems');
     $routes->post('transaction/items/delete', 'Transaction::deleteAllCartItems');
+    $routes->post('transaction/items/(:num)/delete', 'Transaction::deleteCartItem/$1');
 
     $routes->get('/transactions', 'Dashboard::transactions');
     $routes->get('/summary', 'Dashboard::summary');

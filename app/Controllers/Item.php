@@ -64,7 +64,7 @@ class Item extends BaseController
     {
         $validated = $this->validate([
             'brand' => 'required|min_length[2]',
-            'name' => 'required|',
+            'name' => 'required',
             'code' => 'required|min_length[2]|max_length[32]',
             'category' => 'required',
             'price' => 'required|numeric',
