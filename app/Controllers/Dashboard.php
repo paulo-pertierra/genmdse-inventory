@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CustomerModel;
 use App\Models\ItemModel;
+use App\Models\TransactionModel;
 use App\Models\UserModel;
 
 class Dashboard extends BaseController
@@ -36,10 +37,14 @@ class Dashboard extends BaseController
 
         $customerModel = new CustomerModel();
         $customersCount = $customerModel->countAllResults();
+
+        $transactionModel = new TransactionModel();
+        $transactionsCount = $transactionModel->countAllResults();
         
         $data = [
             'customersCount' => $customersCount,
-            'itemsCount' => $itemsCount
+            'itemsCount' => $itemsCount,
+            'transactionsCount' => $transactionsCount
         ];
 
         return view('template/htmlhead', Dashboard::headerData())

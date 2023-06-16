@@ -8,7 +8,7 @@
         <p class="text-2xl text-gray-700"><?= $customersCount ?> Customers</p>
       </div>
       <div class="flex h-24 items-center justify-center rounded bg-pink-100">
-        <p class="text-2xl text-gray-700">44 Transactions</p>
+        <p class="text-2xl text-gray-700"><?= $transactionsCount ?> Transactions</p>
       </div>
     </div>
     <div class="mb-4 flex h-48 items-center justify-center rounded bg-indigo-100">
