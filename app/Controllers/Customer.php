@@ -38,7 +38,7 @@ class Customer extends BaseController
     {
         $customerModel = new CustomerModel();
 
-        $customers = $customerModel->findAll(5);
+        $customers = $customerModel->findAll();
 
         $data = [
             'customers' => $customers

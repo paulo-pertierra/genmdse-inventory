@@ -25,7 +25,9 @@
     <div class="mb-4 flex items-center">
       <img src="https://fakeimg.pl/32x32?text=PP" class="rounded-lg" alt="" />
       <div>
-      <p class="mx-4 text-xs text-indigo-100"><?= $userInfo['name']; ?> | <?= $userInfo['email']; ?></p>
+      <div class="block w-48s">
+      <p class="w-48 mx-4 text-xs text-indigo-100 truncate"><?= $userInfo['name']; ?> | <?= $userInfo['email']; ?></p>
+      </div>
       </div>
     </div>
     <a href="/dashboard/preferences" class="block w-64 rounded-lg p-2 text-sm font-medium text-indigo-100 hover:cursor-pointer hover:bg-indigo-700"><span class="mr-3 w-4 inline-block"><i class="fa-solid fa-user-gear"></i></span> Preferences</a>

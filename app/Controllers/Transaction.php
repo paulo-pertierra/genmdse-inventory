@@ -208,6 +208,9 @@ class Transaction extends BaseController
             ]);
         }
 
-        return redirect()->to('/transaction/create');;
+        unset($_SESSION['cart']);
+        unset($_SESSION['paymentDue']);
+        
+        return redirect()->to('/transaction');;
     }
 }

@@ -25,7 +25,7 @@
                         <?php
                         }
                         ?>
-                        <form action="<?= base_url('/inventory/create') ?>" method="POST">
+                        <form action="/inventory/create" method="POST">
                             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                 <div class="sm:col-span-1">
                                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Brand</label>

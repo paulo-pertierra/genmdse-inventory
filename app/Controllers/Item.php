@@ -40,7 +40,7 @@ class Item extends BaseController
          *                      UPDATE ITEM->'code', 'product name', 'description', 'qty', 'price'
          */
         $itemModel = new ItemModel();
-        $itemData = $itemModel->findAll(5, 0);
+        $itemData = $itemModel->findAll();
 
         $data = [
             'items' => $itemData
@@ -75,7 +75,7 @@ class Item extends BaseController
         if (!$validated) {
             return view('template/htmlhead.php', Item::headerData())
                 . view('template/dashboard/sidebar', $data = Item::userData())
-                . view('dashboard/inventory/create', ['validation' => $this->validator])
+                . view('/inventory/create', ['validation' => $this->validator])
                 . view('template/htmlend');
         }
 
